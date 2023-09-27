@@ -9,13 +9,9 @@ app.use(cors());
 app.use(express.json());
 
 app.post('/login',(req,res)=>{
-   console.log(req.body.email,req.body.password)
-  // CustomerModel.create(req.body)
-  // .then(Customers=>res.json(Customers))
-  // .catch(err=>res.json(err))
-  {/* CustomerModel.create(req,res)*/}
-  // .then(customer=>res.json(customer))
-  // .catch(err=>res.json(err))
+  CustomerModel.create(req.body)
+  .then(login =>res.json(login))
+  .catch(err=>res.json(err))
 })
 
 connectDB();
